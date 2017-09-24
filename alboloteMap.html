@@ -1,17 +1,25 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Mapa de Albolote</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
    integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
    crossorigin=""/>
+<style>
+#mapid { height: 500px; width: 500px }
+</style>
+</head>
+<body>
+<div id="mapid"></div>
 <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
    integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
    crossorigin=""></script>
-</head>
-<body>
-<div id="albolote" style="width: 500px; height: 500px;"></div>
+<script src="./Leaflet.LocationShare.js"></script>
 <script>
-	var map = L.map('albolote').setView([37.231, -3.65], 13);
+var mymap = L.map('mapid').setView([37.228, -3.652], 17);
+
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(mymap);
 </script>
 </body>
 </html>
