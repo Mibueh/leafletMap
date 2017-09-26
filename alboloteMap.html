@@ -17,9 +17,19 @@
 <script>
 var mymap = L.map('mapid').setView([37.228, -3.652], 17);
 
+var sitios = L.layerGroup();
+
+	L.marker([37.228253, -3.652611]).bindPopup('Aqui es donde vivo').addTo(sitios),
+	L.marker([37.230602, -3.657095]).bindPopup('Aqui esta el ayuntamiento').addTo(sitios),
+	L.marker([37.227954, -3.66188]).bindPopup('Aqui esta el instituto').addTo(sitios);
+	
+	var grayscale = L.tileLayer(mbUrl, {id: 'mapbox.light', attribution: mbAttr}),
+		streets = L.tileLayer(mbUrl, {id: 'mapbox.streets',   attribution: mbAttr});
+	
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(mymap);
+
 </script>
 </body>
 </html>
