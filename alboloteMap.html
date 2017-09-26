@@ -26,6 +26,26 @@ var sitios = L.layerGroup();
 		streets  = L.tileLayer(mbUrl, {id: 'mapbox.streets',   attribution: mbAttr});
 		dark  = L.tileLayer(mbUrl, {id: 'mapbox.dark',   attribution: mbAttr});
 
+	
+        var map = L.map('map', {
+                center: [37.22, -3.65],
+                zoom: 10,
+                layers: [grayscale, sitios]
+        });
+
+
+        var baseLayers = {
+                "Grises": grayscale,
+                "Calles": streets,
+                "Dark": dark
+        };
+
+        var overlays = {
+                "Lugares": sitios
+        };
+
+        L.control.layers(baseLayers, overlays).addTo(map);
+
 </script>
 </body>
 </html>
