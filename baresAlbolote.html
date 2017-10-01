@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Custom Icons Tutorial - Leaflet</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>
+
+
+	<style>
+		#map {
+			width: 600px;
+			height: 400px;
+		}
+	</style>
+
+	
+</head>
+<body>
+
+<div id='map'></div>
+
+<script>
+	var map = L.map('map').setView([37.22843, -3.65], 15);
+
+	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+	}).addTo(map);
+
+	var LeafIcon = L.Icon.extend({
+		options: {
+			shadowUrl: 'leaf-shadow.png',
+			iconSize:     [38, 50],
+			iconAnchor:   [22, 48],
+			popupAnchor:  [-3, -42]
+		}
+	});
+	var restaurante = new LeafIcon({iconUrl: 'images/restaurante.png'}),
+		bar = new LeafIcon({iconUrl: 'images/bar.png'}),
+		barRestaurante = new LeafIcon({iconUrl: 'images/barRestaurante.png'});
+
+
+	L.marker([37.22845, -3.654059], {icon: bar}).bindPopup("Bar Jardines: 2€ el refresco, 2,5€ cerveza. Patata asada").addTo(map);
+	L.marker([37.22781, -3.656828], {icon: barRestaurante}).bindPopup("Bar La Estrella: 2€ el refreso. Tapas caseras muy buenas. Opcion de restaurante.").addTo(map);
+	L.marker([37.228445, -3.653662], {icon: barRestaurante}).bindPopup("Restaurante Bichitos: Mejor plato: Bacalao con tomate. 12 el plato + bebida").addTo(map);
+        L.marker([37.227925, -3.65255], {icon: barRestaurante}).bindPopup("Casa Ernesto: Buena atención, mejores platos. Refresco 2€ + tapa. Opción de restaurante. Jamon asado riquisimo").addTo(map);
+	L.marker([37.230242, -3.651979], {icon: barRestaurante}).bindPopup("Bar Restaurante Pisoton: Comida barata y sustanciosa. Opcion de tapeo").addTo(map);
+        L.marker([37.231804, -3.653378], {icon: restaurante}).bindPopup("El Zahir: Platos economicos y buenos. Con reserva se pueden ordenar otros platos").addTo(map);
+        L.marker([37.225095, -3.65333], {icon: restaurante}).bindPopup("Asador Loraida: Muy buena fama. Menus a partir de 34€").addTo(map);
+        L.marker([37.232045, -3.650871], {icon: barRestaurante}).bindPopup("Restaurante Las Peñas: Lugar muy recomendado para comer y tapear. Relacion Calidad-precio muy buena").addTo(map);
+
+
+</script>
+
+
+
+</body>
+</html>
+
