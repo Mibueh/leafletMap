@@ -27,10 +27,12 @@
 <div id='map'></div>
 
 <script>
-	var map = L.map('map').setView([37.22843, -3.65], 15);
+	var map = L.map('map').setView([37.229414, -3.654943], 15);
 
 	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+		maxZoom: 15,
+		minZoom: 15
 	}).addTo(map);
 
 	var lugar = L.Icon.extend({
