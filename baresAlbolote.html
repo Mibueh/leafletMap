@@ -26,6 +26,8 @@
 
 <div id='map'></div>
 
+<h2>Mapa de Albolote para tapear</h2>
+
 <script>
 	var map = L.map('map').setView([37.229414, -3.654943], 15);
 
@@ -44,11 +46,13 @@
 	});
 	var restaurante = new lugar({iconUrl: 'images/restaurante.png'}),
 		bar = new lugar({iconUrl: 'images/bar.png'}),
-		barRestaurante = new lugar({iconUrl: 'images/barRestaurante.png'});
+		barRestaurante = new lugar({iconUrl: 'images/barRestaurante.png'}),
+		paradas = new lugar ({iconUrl: 'paradas.png'});
 
 	var restaurantes = L.layerGroup();
 	var bares = L.layerGroup();
 	var barRestaurantes = L.layerGroup();
+	var paradas = L.layerGroup();	
 
 	L.marker([37.22845, -3.654059], {icon: bar}).bindPopup("Bar Jardines: 2€ el refresco, 2,5€ cerveza. Patata asada").addTo(bares);
 	L.marker([37.22781, -3.656828], {icon: barRestaurante}).bindPopup("Bar La Estrella: 2€ el refreso. Tapas caseras muy buenas. Opcion de restaurante.").addTo(barRestaurantes);
@@ -59,17 +63,23 @@
         L.marker([37.225095, -3.65333], {icon: restaurante}).bindPopup("Asador Loraida: Muy buena fama. Menus a partir de 34€").addTo(restaurantes);
         L.marker([37.232045, -3.650871], {icon: barRestaurante}).bindPopup("Restaurante Las Peñas: Lugar muy recomendado para comer y tapear. Relacion Calidad-precio muy buena").addTo(barRestaurantes);
 
+	L.marker([37.228319, -3.653519], {icon: bar}).bindPopup("Parada de autobús 122").addTo(paradas);
+	L.marker([37.22746, -3.651544], {icon: bar}).bindPopup("Parada de autobús 122").addTo(paradas);
+	L.marker([37.227967, -3.656621], {icon: bar}).bindPopup("Parada de autobús 122").addTo(paradas);
+	L.marker([37.227636, -3.65957], {icon: bar}).bindPopup("Parada de autobús 122").addTo(paradas);
+	L.marker([37.228323, -3.653573], {icon: bar}).bindPopup("Parada de autobús 122").addTo(paradas);
+	L.marker([37.226363, -3.649301], {icon: bar}).bindPopup("Parada de autobús 122").addTo(paradas);
+	L.marker([37.228217, -3.653592], {icon: bar}).bindPopup("Parada de tranvía albolote, final de linea").addTo(paradas);
+
 	var overlays = {
 		"Restaurantes": restaurantes,
 		"Bares": bares,
-		"Bar + Restaurante": barRestaurantes
+		"Bar + Restaurante": barRestaurantes,
+		"Paradas de autobus y tranvía": paradas
 	};
 	L.control.layers(overlays).addTo(map)
 
 </script>
-
-
-
 </body>
 </html>
 
