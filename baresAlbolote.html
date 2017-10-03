@@ -33,7 +33,7 @@
 
 	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-		maxZoom: 15,
+		maxZoom: 18,
 		minZoom: 15
 	}).addTo(map);
 
@@ -47,14 +47,17 @@
 	var restaurante = new lugar({iconUrl: 'images/restaurante.png'}),
 		bar = new lugar({iconUrl: 'images/bar.png'}),
 		barRestaurante = new lugar({iconUrl: 'images/barRestaurante.png'}),
-		paradas = new lugar ({iconUrl: 'paradas.png'});
+		parada = new lugar({iconUrl: 'images/paradas.png'}),
+		metroIcon = new lugar({iconUrl: 'images/metroIcon.png'});
 
 	var restaurantes = L.layerGroup();
 	var bares = L.layerGroup();
 	var barRestaurantes = L.layerGroup();
-	var paradas = L.layerGroup();	
+	var paradas = L.layerGroup();
+	var metro = L.layerGroup();	
 
 	L.marker([37.22845, -3.654059], {icon: bar}).bindPopup("Bar Jardines: 2€ el refresco, 2,5€ cerveza. Patata asada").addTo(bares);
+	L.marker([37.227911, -3.65834], {icon: bar}).bindPopup("Bar La Locura del rey. 2.50 la tapa. Mejor tapa: Patatas Bomba").addTo(bares);
 	L.marker([37.22781, -3.656828], {icon: barRestaurante}).bindPopup("Bar La Estrella: 2€ el refreso. Tapas caseras muy buenas. Opcion de restaurante.").addTo(barRestaurantes);
 	L.marker([37.228445, -3.653662], {icon: barRestaurante}).bindPopup("Restaurante Bichitos: Mejor plato: Bacalao con tomate. 12 el plato + bebida").addTo(barRestaurantes);
         L.marker([37.227925, -3.65255], {icon: barRestaurante}).bindPopup("Casa Ernesto: Buena atención, mejores platos. Refresco 2€ + tapa. Opción de restaurante. Jamon asado riquisimo").addTo(barRestaurantes);
@@ -63,19 +66,19 @@
         L.marker([37.225095, -3.65333], {icon: restaurante}).bindPopup("Asador Loraida: Muy buena fama. Menus a partir de 34€").addTo(restaurantes);
         L.marker([37.232045, -3.650871], {icon: barRestaurante}).bindPopup("Restaurante Las Peñas: Lugar muy recomendado para comer y tapear. Relacion Calidad-precio muy buena").addTo(barRestaurantes);
 
-	L.marker([37.228319, -3.653519], {icon: bar}).bindPopup("Parada de autobús 122").addTo(paradas);
-	L.marker([37.22746, -3.651544], {icon: bar}).bindPopup("Parada de autobús 122").addTo(paradas);
-	L.marker([37.227967, -3.656621], {icon: bar}).bindPopup("Parada de autobús 122").addTo(paradas);
-	L.marker([37.227636, -3.65957], {icon: bar}).bindPopup("Parada de autobús 122").addTo(paradas);
-	L.marker([37.228323, -3.653573], {icon: bar}).bindPopup("Parada de autobús 122").addTo(paradas);
-	L.marker([37.226363, -3.649301], {icon: bar}).bindPopup("Parada de autobús 122").addTo(paradas);
-	L.marker([37.228217, -3.653592], {icon: bar}).bindPopup("Parada de tranvía albolote, final de linea").addTo(paradas);
+	L.marker([37.228319, -3.653519], {icon: parada}).bindPopup("Parada de autobús1 122").addTo(paradas);
+	L.marker([37.22746, -3.651544], {icon: parada}).bindPopup("Parada de autobús2 122").addTo(paradas);
+	L.marker([37.227967, -3.656621], {icon: parada}).bindPopup("Parada de autobús3 122").addTo(paradas);
+	L.marker([37.227636, -3.65957], {icon: parada}).bindPopup("Parada de autobús4 122").addTo(paradas);
+	L.marker([37.226363, -3.649301], {icon: parada}).bindPopup("Parada de autobús6 122").addTo(paradas);
+	L.marker([37.228217, -3.653592], {icon: metroIcon}).bindPopup("Parada de metro de albolote, final de linea").addTo(metro);
 
 	var overlays = {
 		"Restaurantes": restaurantes,
 		"Bares": bares,
 		"Bar + Restaurante": barRestaurantes,
-		"Paradas de autobus y tranvía": paradas
+		"Paradas de autobus": paradas,
+		"Parada de metro": metro
 	};
 	L.control.layers(overlays).addTo(map)
 
